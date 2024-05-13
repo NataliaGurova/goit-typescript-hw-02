@@ -19,7 +19,7 @@ const App = () => {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<IImage | null>(null); // Додайте стан для вибраного зображення
+  const [selectedImage, setSelectedImage] = useState<string>(''); // Додайте стан для вибраного зображення
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const scrolling = useRef<HTMLDivElement>(null);
   
@@ -57,10 +57,10 @@ const App = () => {
 
   function closeModal(): void {
     setIsOpen(false);
-    setSelectedImage(null);
+    setSelectedImage('');
   }
   
-  const handleImageClick = (image: IImage): void => {
+  const handleImageClick = (image: string) => {
     setSelectedImage(image);
     setIsOpen(true);
   }
@@ -89,9 +89,9 @@ const App = () => {
       <SearchBar onSearch={handleSubmitStart} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
-      <ImageGallery images={images} onClick={handleImageClick} />
+      <ImageGallery images={images} onClickImage={handleImageClick} />
       {totalPages > 0 && images.length < totalPages && <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>}
-      <ImageModal images={selectedImage}
+      <ImageModal modalImage={selectedImage}
       isOpen={modalIsOpen} 
         onRequestClose={closeModal} />
       <Toaster />

@@ -1,5 +1,5 @@
 
-export interface Image {
+export interface IImage {
   id: string;
   alt_description?: string;
   urls: {

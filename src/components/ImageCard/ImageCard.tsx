@@ -2,7 +2,8 @@ import css from "./ImageCard.module.css"
 import { FC } from 'react';
 
 interface ImageCardProps {
-    small: string;
+  small: string;
+  regular: string;
     alt: string;
     onClick: () => void;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Modal from 'react-modal';
 import { FC } from 'react';
 
@@ -33,15 +33,13 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 interface ImageModalProps {
-    images: {
-        regular: string;
-        alt: string;
-    };
+    modalImage: string;
     isOpen: boolean;
     onRequestClose: () => void;
 }
 
-export const ImageModal: FC<ImageModalProps> = ({ images, isOpen, onRequestClose }) => {
+export const ImageModal: FC<ImageModalProps> = ({ modalImage, isOpen, onRequestClose }) => {
+console.log(modalImage);
 
   useEffect(() => {
         if (isOpen) {
@@ -59,7 +57,7 @@ export const ImageModal: FC<ImageModalProps> = ({ images, isOpen, onRequestClose
       style={customStyles}
     >
       <div style={{ overflow: 'hidden' }}>
-                <img src={images} alt="Selected Image" />
+                <img src={modalImage} alt="Selected Image" />
             </div>
     </Modal>
   )

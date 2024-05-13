@@ -6,13 +6,10 @@ import { FC } from 'react';
 
 interface ImageGalleryProps {
   images: IImage[];
-  image: IImage;
-  onClick: (image: IImage) => void;
-  // onClick: (event: MouseEvent<HTMLImageElement>) => void
-
+  onClickImage: (image: string) => void;
 }
 
-const ImageGallery: FC<ImageGalleryProps> = ({ images, onClick }) => {
+const ImageGallery: FC<ImageGalleryProps> = ({ images, onClickImage }) => {
   
   return (    
     <ul className={css.list}>
@@ -22,7 +19,7 @@ const ImageGallery: FC<ImageGalleryProps> = ({ images, onClick }) => {
           <ImageCard small={image.urls.small}
             regular={image.urls.regular}
             alt={image.alt_description || ''}
-            onClick={() => onClick(image.urls.regular)}/>
+            onClick={() => onClickImage(image.urls.regular)}/>
         </li>
       ))}
     </ul>);
