@@ -1,8 +1,10 @@
 import css from './LoadMoreBtn.module.css';
-import {FC} from "react"
+import React, { FC } from "react"
+// import * as React from 'react';
 
 interface LoadMoreBtnProps {
-  children: React.ReactElement;
+  children: React.ReactNode
+  // children: React.ReactElement;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
