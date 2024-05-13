@@ -29,8 +29,6 @@ const App = () => {
     setLoading(true);
     fetchPhotos(query, page)
       .then(({ results, total_pages }) => {
-
-        console.log(results);
         
         setImages(prev => [...prev,...results])
         setTotalPages(total_pages)
@@ -46,8 +44,7 @@ const App = () => {
     setImages([])
     setTotalPages(0)
     setError(false)
-    setQuery(query);
-    console.log(query);    
+    setQuery(query);   
   };
     
   const handleLoadMore = (): void => {

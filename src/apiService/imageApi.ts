@@ -23,7 +23,6 @@ interface ApiResult {
 export const fetchPhotos = async (query: string, page: number): Promise<ApiResult> => {
 
 const { data } = await axios.get<ApiResult>(`search/photos?page=${page}&query=${query}`);
-      console.log(data);
     return data;
 };
 

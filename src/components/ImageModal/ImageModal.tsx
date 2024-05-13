@@ -39,7 +39,6 @@ interface ImageModalProps {
 }
 
 export const ImageModal: FC<ImageModalProps> = ({ modalImage, isOpen, onRequestClose }) => {
-console.log(modalImage);
 
   useEffect(() => {
         if (isOpen) {
