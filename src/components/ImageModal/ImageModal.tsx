@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import { FC } from 'react';
+import ReactModal from 'react-modal';
 
-const customStyles = {
+const customStyles: ReactModal.Styles = {
 
   overlay: {
     position: "fixed",
@@ -19,7 +20,6 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     maxWidth: "90vw",
     maxHeight: "90vh",
-    // overflow: "auto",
     overflow: "hidden",
     objectFit: "cover",
     border: "none",
@@ -30,7 +30,7 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
+ReactModal.setAppElement('#root');
 
 interface ImageModalProps {
     modalImage: string;
@@ -49,7 +49,7 @@ export const ImageModal: FC<ImageModalProps> = ({ modalImage, isOpen, onRequestC
     }, [isOpen]);
 
     return (
-		<Modal
+		<ReactModal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Image Modal"
@@ -58,6 +58,6 @@ export const ImageModal: FC<ImageModalProps> = ({ modalImage, isOpen, onRequestC
       <div style={{ overflow: 'hidden' }}>
                 <img src={modalImage} alt="Selected Image" />
             </div>
-    </Modal>
+    </ReactModal>
   )
 }

@@ -8,7 +8,7 @@ interface LoadMoreBtnProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export const LoadMoreBtn: FC<LoadMoreBtnProps> = ({ onClick, children }) => {
+export const LoadMoreBtn = ({ onClick, children }: LoadMoreBtnProps) => {
   // console.log(onClick);
   
   return (
